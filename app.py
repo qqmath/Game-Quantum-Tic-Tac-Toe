@@ -35,7 +35,7 @@ def main():
 
                 if not user_flag:
                     st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
+                    st.session_state.available_moves = []
                     return 0
 
                 # if the user has not won, allow the computer to make it's move
@@ -55,10 +55,7 @@ def main():
 
                 st.write("Computer's Move: ",comp_square)
                 st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
-
-            else:
-                st.dataframe(st.session_state.board)
+            st.dataframe(st.session_state.board)
 
         elif moves==2:
             if st.session_state.board[0,1]==psi:
@@ -70,7 +67,7 @@ def main():
 
                 if not user_flag:
                     st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
+                    st.session_state.available_moves = []
                     return 0
 
                 # if the user has not won, allow the computer to make it's move
@@ -90,10 +87,7 @@ def main():
 
                 st.write("Computer's Move: ",comp_square)
                 st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
-
-            else:
-                st.dataframe(st.session_state.board)
+            st.dataframe(st.session_state.board)
 
         elif moves==3:
             if st.session_state.board[0,2]==psi:
@@ -105,112 +99,7 @@ def main():
 
                 if not user_flag:
                     st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
-                    return 0
-
-                # if the user has not won, allow the computer to make it's move
-                # get the choice of computer using numpy
-                comp_square = np.random.randint(1,9) 
-                col = (comp_square-1)%3                     # get the correct column value
-                row = math.floor((comp_square-1)/3)         # get the correct row value
-                comp_value = get_random_value()
-                if st.session_state.board[row,col]==psi:
-                    st.session_state.board[row,col] = comp_value # update the board
-
-                # check if computer has won
-                comp_flag = validate(st.session_state.board)
-
-                if not comp_flag:
-                    return 0
-
-                st.write("Computer's Move: ",comp_square)
-                st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
-
-            else:
-                st.dataframe(st.session_state.board)
-
-        elif moves==4:
-            if st.session_state.board[1,0]==psi:
-                #update the value
-                st.session_state.board[1,0] = get_random_value()
-
-                # check if the user has won
-                user_flag = validate(st.session_state.board)
-
-                if not user_flag:
-                    st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
-                    return 0
-
-                # if the user has not won, allow the computer to make it's move
-                # get the choice of computer using numpy
-                comp_square = np.random.randint(1,9) 
-                col = (comp_square-1)%3                     # get the correct column value
-                row = math.floor((comp_square-1)/3)         # get the correct row value
-                comp_value = get_random_value()
-                if st.session_state.board[row,col]==psi:
-                    st.session_state.board[row,col] = comp_value # update the board
-
-                # check if computer has won
-                comp_flag = validate(st.session_state.board)
-
-                if not comp_flag:
-                    return 0
-
-                st.write("Computer's Move: ",comp_square)
-                st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
-
-            else:
-                st.dataframe(st.session_state.board)
-
-        elif moves==5:
-            if st.session_state.board[1,1]==psi:
-                #update the value
-                st.session_state.board[1,1] = get_random_value()
-
-                # check if the user has won
-                user_flag = validate(st.session_state.board)
-
-                if not user_flag:
-                    st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
-                    return 0
-
-                # if the user has not won, allow the computer to make it's move
-                # get the choice of computer using numpy
-                comp_square = np.random.randint(1,9) 
-                col = (comp_square-1)%3                     # get the correct column value
-                row = math.floor((comp_square-1)/3)         # get the correct row value
-                comp_value = get_random_value()
-                if st.session_state.board[row,col]==psi:
-                    st.session_state.board[row,col] = comp_value # update the board
-
-                # check if computer has won
-                comp_flag = validate(st.session_state.board)
-
-                if not comp_flag:
-                    return 0
-
-                st.write("Computer's Move: ",comp_square)
-                st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
-
-            else:
-                st.dataframe(st.session_state.board)
-
-        elif moves==6:
-            if st.session_state.board[1,2]==psi:
-                #update the value
-                st.session_state.board[1,2] = get_random_value()
-
-                # check if the user has won
-                user_flag = validate(st.session_state.board)
-
-                if not user_flag:
-                    st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
+                    st.session_state.available_moves = []
                     return 0
 
                 # if the user has not won, allow the computer to make it's move
@@ -230,10 +119,103 @@ def main():
 
                 st.write("Computer's Move: ",comp_square)
                 st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
+            st.dataframe(st.session_state.board)
 
-            else:
-                st.dataframe(st.session_state.board)
+        elif moves==4:
+            if st.session_state.board[1,0]==psi:
+                #update the value
+                st.session_state.board[1,0] = get_random_value()
+
+                # check if the user has won
+                user_flag = validate(st.session_state.board)
+
+                if not user_flag:
+                    st.dataframe(st.session_state.board)
+                    st.session_state.available_moves = []
+                    return 0
+
+                # if the user has not won, allow the computer to make it's move
+                # get the choice of computer using numpy
+                comp_square = np.random.randint(1,9)
+                col = (comp_square-1)%3                     # get the correct column value
+                row = math.floor((comp_square-1)/3)         # get the correct row value
+                comp_value = get_random_value()
+                if st.session_state.board[row,col]==psi:
+                    st.session_state.board[row,col] = comp_value # update the board
+
+                # check if computer has won
+                comp_flag = validate(st.session_state.board)
+
+                if not comp_flag:
+                    return 0
+
+                st.write("Computer's Move: ",comp_square)
+                st.write("Computer's Value: ",comp_value)
+            st.dataframe(st.session_state.board)
+
+        elif moves==5:
+            if st.session_state.board[1,1]==psi:
+                #update the value
+                st.session_state.board[1,1] = get_random_value()
+
+                # check if the user has won
+                user_flag = validate(st.session_state.board)
+
+                if not user_flag:
+                    st.dataframe(st.session_state.board)
+                    st.session_state.available_moves = []
+                    return 0
+
+                # if the user has not won, allow the computer to make it's move
+                # get the choice of computer using numpy
+                comp_square = np.random.randint(1,9)
+                col = (comp_square-1)%3                     # get the correct column value
+                row = math.floor((comp_square-1)/3)         # get the correct row value
+                comp_value = get_random_value()
+                if st.session_state.board[row,col]==psi:
+                    st.session_state.board[row,col] = comp_value # update the board
+
+                # check if computer has won
+                comp_flag = validate(st.session_state.board)
+
+                if not comp_flag:
+                    return 0
+
+                st.write("Computer's Move: ",comp_square)
+                st.write("Computer's Value: ",comp_value)
+            st.dataframe(st.session_state.board)
+
+        elif moves==6:
+            if st.session_state.board[1,2]==psi:
+                #update the value
+                st.session_state.board[1,2] = get_random_value()
+
+                # check if the user has won
+                user_flag = validate(st.session_state.board)
+
+                if not user_flag:
+                    st.dataframe(st.session_state.board)
+                    st.session_state.available_moves = []
+                    return 0
+
+                # if the user has not won, allow the computer to make it's move
+                # get the choice of computer using numpy
+                comp_square = np.random.randint(1,9)
+                col = (comp_square-1)%3                     # get the correct column value
+                row = math.floor((comp_square-1)/3)         # get the correct row value
+                comp_value = get_random_value()
+                if st.session_state.board[row,col]==psi:
+                    st.session_state.board[row,col] = comp_value # update the board
+
+                # check if computer has won
+                comp_flag = validate(st.session_state.board)
+
+                if not comp_flag:
+                    return 0
+
+                st.write("Computer's Move: ",comp_square)
+                st.write("Computer's Value: ",comp_value)
+            st.dataframe(st.session_state.board)
 
         elif moves==7:
 
@@ -246,12 +228,12 @@ def main():
 
                 if not user_flag:
                     st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
+                    st.session_state.available_moves = []
                     return 0
 
                 # if the user has not won, allow the computer to make it's move
                 # get the choice of computer using numpy
-                comp_square = np.random.randint(1,9) 
+                comp_square = np.random.randint(1,9)
                 col = (comp_square-1)%3                     # get the correct column value
                 row = math.floor((comp_square-1)/3)         # get the correct row value
                 comp_value = get_random_value()
@@ -266,10 +248,7 @@ def main():
 
                 st.write("Computer's Move: ",comp_square)
                 st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
-
-            else:
-                st.dataframe(st.session_state.board)
+            st.dataframe(st.session_state.board)
 
         elif moves==8:
 
@@ -282,12 +261,12 @@ def main():
 
                 if not user_flag:
                     st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
+                    st.session_state.available_moves = []
                     return 0
 
                 # if the user has not won, allow the computer to make it's move
                 # get the choice of computer using numpy
-                comp_square = np.random.randint(1,9) 
+                comp_square = np.random.randint(1,9)
                 col = (comp_square-1)%3                     # get the correct column value
                 row = math.floor((comp_square-1)/3)         # get the correct row value
                 comp_value = get_random_value()
@@ -302,10 +281,7 @@ def main():
 
                 st.write("Computer's Move: ",comp_square)
                 st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
-
-            else:
-                st.dataframe(st.session_state.board)
+            st.dataframe(st.session_state.board)
 
         elif moves==9:
             if st.session_state.board[2,2]==psi:
@@ -317,12 +293,12 @@ def main():
 
                 if not user_flag:
                     st.dataframe(st.session_state.board)
-                    st.session_state.available_moves = list()
+                    st.session_state.available_moves = []
                     return 0 
 
                 # if the user has not won, allow the computer to make it's move
                 # get the choice of computer using numpy
-                comp_square = np.random.randint(1,9) 
+                comp_square = np.random.randint(1,9)
                 col = (comp_square-1)%3                     # get the correct column value
                 row = math.floor((comp_square-1)/3)         # get the correct row value
                 comp_value = get_random_value()
@@ -337,13 +313,7 @@ def main():
 
                 st.write("Computer's Move: ",comp_square)
                 st.write("Computer's Value: ",comp_value)
-                st.dataframe(st.session_state.board)
-
-            else:
-                st.dataframe(st.session_state.board)
-
-
-
+            st.dataframe(st.session_state.board)
 
     elif option=="Instructions":
         st.subheader('Instructions')
