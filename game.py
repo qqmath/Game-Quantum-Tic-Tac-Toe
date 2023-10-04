@@ -36,9 +36,7 @@ def get_random_value():
   # get the two possible results as list
   keys = list(res.keys())
 
-  # get the outcome with higher frequency 
-  random_value = '|' + str(keys[np.argmax(values)]) + '>'
-  return random_value
+  return f'|{str(keys[np.argmax(values)])}>'
 
 
 
@@ -82,37 +80,33 @@ def validate(arr):
   if not flag:
     return 0
 
-  # we execute the below for loops iff any of the above conditions are not 
-  # satisfied
-  if flag:
-    
-    # Checks if any of the row conquered by user
-    for index in [0,1,2]:
-      if (list(arr[index])==[one_ket,one_ket,one_ket]):
-        st.success('User has won!')
-        return 0
-        
-    # Checks if any of the row conquered by computer
-    for index in [0,1,2]:
-      if (list(arr[index])==[zero_ket,zero_ket,zero_ket]):
-        st.success("Computer wins!")
-        return 0
-
-    # Checks if any of the column conquered by user
-    for index in [0,1,2]:
-      if (list(arr[:,index])==[one_ket,one_ket,one_ket]):
-        st.success('User has won!')
-        return 0
-
-    # Checks if any of the column conquered by computer
-    for index in [0,1,2]:
-      if (list(arr[:,index])==[zero_ket,zero_ket,zero_ket]):
-        st.success('Computer wins!')
-        return 0
-
-    # Check if it's a draw
-    if '|ψ>' not in arr:
-      st.write("It's a draw!")
+  # Checks if any of the row conquered by user
+  for index in [0,1,2]:
+    if (list(arr[index])==[one_ket,one_ket,one_ket]):
+      st.success('User has won!')
       return 0
+
+  # Checks if any of the row conquered by computer
+  for index in [0,1,2]:
+    if (list(arr[index])==[zero_ket,zero_ket,zero_ket]):
+      st.success("Computer wins!")
+      return 0
+
+  # Checks if any of the column conquered by user
+  for index in [0,1,2]:
+    if (list(arr[:,index])==[one_ket,one_ket,one_ket]):
+      st.success('User has won!')
+      return 0
+
+  # Checks if any of the column conquered by computer
+  for index in [0,1,2]:
+    if (list(arr[:,index])==[zero_ket,zero_ket,zero_ket]):
+      st.success('Computer wins!')
+      return 0
+
+  # Check if it's a draw
+  if '|ψ>' not in arr:
+    st.write("It's a draw!")
+    return 0
   # if none of the conditions are satisfied, 1 is returned.
   return 1
